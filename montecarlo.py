@@ -33,11 +33,11 @@ class Connect4():
 
         self.rows = 6
         self.cols = 7
-        self.cell_size = 100
+        self.cell_size = 150
         self.width = self.cols * self.cell_size
         self.height = (self.rows + 1) * self.cell_size
         self.display = pygame.display.set_mode((self.width, self.height))
-        self.font = pygame.font.Font(None, 50)
+        self.font = pygame.font.Font(None, 75)
         self.board = np.zeros(([self.rows, self.cols]), dtype=int)
         self.cur_player = 1
         self.overselection = 0
@@ -183,16 +183,16 @@ class Connect4():
             self.display.blit(text_surface, text_rect)
         else:
             text_surface = self.font.render("DRAW!!", True, (180, 180, 180))
-            text_rect = text_surface.get_rect(center=(self.width // 2, 150))
+            text_rect = text_surface.get_rect(center=(self.width // 2, 225))
             self.display.blit(text_surface, text_rect)
         text_surface = self.font.render("PLAY AGAIN??", True, (180, 180, 180))
-        text_rect = text_surface.get_rect(center=(self.width // 2, 250))
+        text_rect = text_surface.get_rect(center=(self.width // 2, 375))
         self.display.blit(text_surface, text_rect)
         text_surface = self.font.render("YES", True, (80, 80, 80))
-        text_rect = text_surface.get_rect(center=((self.width // 2) - 100, 350))
+        text_rect = text_surface.get_rect(center=((self.width // 2) - 150, 525))
         self.display.blit(text_surface, text_rect)
         text_surface = self.font.render("NO", True, (180, 180, 180))
-        text_rect = text_surface.get_rect(center=((self.width // 2) + 100, 350))
+        text_rect = text_surface.get_rect(center=((self.width // 2) + 150, 525))
         self.display.blit(text_surface, text_rect)
         
         decide = True
@@ -201,18 +201,18 @@ class Connect4():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RIGHT:
                         text_surface = self.font.render("YES", True, (180, 180, 180))
-                        text_rect = text_surface.get_rect(center=((self.width // 2) - 100, 350))
+                        text_rect = text_surface.get_rect(center=((self.width // 2) - 150, 525))
                         self.display.blit(text_surface, text_rect)
                         text_surface = self.font.render("NO", True, (60, 60, 60))
-                        text_rect = text_surface.get_rect(center=((self.width // 2) + 100, 350))
+                        text_rect = text_surface.get_rect(center=((self.width // 2) + 150, 525))
                         self.display.blit(text_surface, text_rect)
                         self.overselection = 1
                     if event.key == pygame.K_LEFT:
                         text_surface = self.font.render("YES", True,(60, 60, 60))
-                        text_rect = text_surface.get_rect(center=((self.width // 2) - 100, 350))
+                        text_rect = text_surface.get_rect(center=((self.width // 2) - 150, 525))
                         self.display.blit(text_surface, text_rect)
                         text_surface = self.font.render("NO", True, (180, 180, 180))
-                        text_rect = text_surface.get_rect(center=((self.width // 2) + 100, 350))
+                        text_rect = text_surface.get_rect(center=((self.width // 2) + 150, 525))
                         self.display.blit(text_surface, text_rect)
                         self.overselection = 0
                     if event.key == pygame.K_SPACE:
